@@ -1,4 +1,6 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="gender_women" filename="gender_women_LD.png" />
+    <bitmap id="gender_men" filename="gender_men_LD.png" />
     <drawable-list id="myRect" />
 </drawables>
