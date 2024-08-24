@@ -3,6 +3,7 @@ import Toybox.Graphics;
 import Toybox.WatchUi;
 import Toybox.Timer;
 import Toybox.System;
+import Toybox.Attention;
 
 class myAppView extends WatchUi.View {
     public var _scoreLight as Number = 0;
@@ -11,12 +12,17 @@ class myAppView extends WatchUi.View {
     public var _scoreDarkLabel;  
     private var _elapsedSecondsGame as Number = 0;
     private var _elapsedSecondsPoint as Number = 0;
+    private var _potentialElapsedSecondsPoint as Number = 0;
     var _myTime;
     var _gameTimeLabel;
     var _pointTimeLabel;
     var _clockLabel;
     var _ratioWomenPng;
     var _ratioMenPng;
+    var _circleOne;
+    var _circleTwo;
+    var _circleThree;
+    var _circleFour;
     //_typeTitleElement = findDrawableById("type_title");
 
     public function initialize() {
@@ -38,6 +44,10 @@ class myAppView extends WatchUi.View {
         _clockLabel = findDrawableById("id_clock");
         _ratioWomenPng = findDrawableById("gender_women");
         _ratioMenPng = findDrawableById("gender_men");
+        _circleOne = findDrawableById("circle_one");
+        _circleTwo = findDrawableById("circle_two");
+        _circleThree = findDrawableById("circle_three");
+        _circleFour = findDrawableById("circle_four");
         
     }
 
@@ -51,17 +61,13 @@ class myAppView extends WatchUi.View {
     function onUpdate(dc as Dc) as Void {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
-        
         _scoreLightLabel.setText(_scoreLight.format("%02d"));        
         _scoreDarkLabel.setText(_scoreDark.format("%02d"));
-        //_gameTimeLabel.setText(_elapsedSecondsGame.toString());
         _gameTimeLabel.setText(convertSecondsToTimerString(_elapsedSecondsGame));
         _pointTimeLabel.setText(convertSecondsToTimerString(_elapsedSecondsPoint));
         _myTime = System.getClockTime();
         _clockLabel.setText(_myTime.hour.format("%02d") + ":" +  _myTime.min.format("%02d"));
-        //dc.drawText(180, 200, Graphics.FONT_MEDIUM, _scoreLight.toString(), Graphics.TEXT_JUSTIFY_CENTER);
-        //dc.drawText(210, 200, Graphics.FONT_MEDIUM, _scoreDark.toString(), Graphics.TEXT_JUSTIFY_CENTER);
-        //addScore();
+        
     }
 
     // Called when this View is removed from the screen. Save the
@@ -71,9 +77,8 @@ class myAppView extends WatchUi.View {
     }
 
     public function addScore(team as Number) as Void {
-        //reset point clock 
-        // this might not be the best place as this method is only called when the user selects which team scored, not when button is pressed.
-        _elapsedSecondsPoint=0;
+        //reset point clock with time since menu button press
+        _elapsedSecondsPoint= _potentialElapsedSecondsPoint;
         
         if (team == 1){
             _scoreLight++;
@@ -92,18 +97,26 @@ class myAppView extends WatchUi.View {
             case 0:
                 _ratioWomenPng.setVisible(true);
                 _ratioMenPng.setVisible(false);
+                _circleFour.setVisible(false);
+                _circleOne.setVisible(true);
                 break;
             case 1:
                 _ratioWomenPng.setVisible(false);
                 _ratioMenPng.setVisible(true);
+                _circleOne.setVisible(false);
+                _circleTwo.setVisible(true);
                 break;
             case 2:
                 _ratioWomenPng.setVisible(false);
                 _ratioMenPng.setVisible(true);
+                _circleTwo.setVisible(false);
+                _circleThree.setVisible(true);
                 break;
             case 3:
                 _ratioWomenPng.setVisible(true);
                 _ratioMenPng.setVisible(false);
+                _circleThree.setVisible(false);
+                _circleFour.setVisible(true);
                 break;
         }
         
@@ -114,7 +127,20 @@ class myAppView extends WatchUi.View {
     public function callback1() as Void {
         _elapsedSecondsGame++;
         _elapsedSecondsPoint++;
+        _potentialElapsedSecondsPoint++;
+        if (_elapsedSecondsPoint == 46) {
+            WatchUi.showToast("Offense Ready", {:icon=>Rez.Drawables.warningToastIcon});         
+            goodVibes();
+        }else if (_elapsedSecondsPoint == 61) {
+            WatchUi.showToast("Defense Ready", {:icon=>Rez.Drawables.warningToastIcon});
+            goodVibes();
+        }
+
         WatchUi.requestUpdate();
+    }
+
+    public function startNewPotentialPointClock() as Void {
+        _potentialElapsedSecondsPoint = 0;
     }
 
     function convertSecondsToTimerString(totalSeconds) {
@@ -125,4 +151,10 @@ class myAppView extends WatchUi.View {
         return timeString;
     }
 
+    public function goodVibes() as Void{
+        if (Attention has :vibrate) {
+            var vibeData = [ new Attention.VibeProfile(50, 250)];// On for 0.25 seconds
+            Attention.vibrate(vibeData);
+        }
+    }
 }

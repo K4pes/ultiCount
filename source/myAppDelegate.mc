@@ -17,6 +17,7 @@ class myAppDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onBack() as Boolean {
+        _view.startNewPotentialPointClock();
         WatchUi.pushView(new Rez.Menus.MainMenu(), new myAppMenuDelegate(), WatchUi.SLIDE_UP);
         return true;
     }

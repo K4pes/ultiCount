@@ -12,4 +12,8 @@
     <!-- <bitmap id="id_monkey" x="center" y="30" filename="../drawables/monkey.png" /> -->
     <bitmap id="gender_women" x="center" y="75%" visible="true" filename="../drawables/gender_women_LD.png" />
     <bitmap id="gender_men" x="center" y="75%" visible="false" filename="../drawables/gender_men_LD.png" />
+    <drawable id="circle_one" visible="true"/>
+    <drawable id="circle_two" visible="false"/>
+    <drawable id="circle_three" visible="false"/>
+    <drawable id="circle_four" visible="false"/>
 </layout>
