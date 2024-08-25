@@ -9,10 +9,12 @@ class myAppView extends WatchUi.View {
     public var _scoreLight as Number = 0;
     public var _scoreDark as Number = 0;
     public var _scoreLightLabel;
-    public var _scoreDarkLabel;  
+    public var _scoreDarkLabel;
+    public var _timeRunning as Boolean = false;  
     private var _elapsedSecondsGame as Number = 0;
     private var _elapsedSecondsPoint as Number = 0;
     private var _potentialElapsedSecondsPoint as Number = 0;
+    var _timer1;
     var _myTime;
     var _gameTimeLabel;
     var _pointTimeLabel;
@@ -36,8 +38,8 @@ class myAppView extends WatchUi.View {
         setLayout(Rez.Layouts.MainLayout(dc));
         _scoreLightLabel = findDrawableById("id_scoreLights");
         _scoreDarkLabel = findDrawableById("id_scoreDarks");
-        var timer1 = new Timer.Timer();
-        timer1.start(method(:callback1), 1000, true);
+        _timer1 = new Timer.Timer();
+        // _timer1.start(method(:callback1), 1000, true);
         
         _gameTimeLabel = findDrawableById("id_gameTimer");
         _pointTimeLabel = findDrawableById("id_pointTimer");
@@ -156,5 +158,16 @@ class myAppView extends WatchUi.View {
             var vibeData = [ new Attention.VibeProfile(50, 250)];// On for 0.25 seconds
             Attention.vibrate(vibeData);
         }
+    }
+
+    public function startStopTimer() as Void {
+        if (_timeRunning == false) {
+            _timer1.start(method(:callback1), 1000, true);
+            _timeRunning = true;
+        } else {
+            _timer1.stop();
+            _timeRunning = false;
+        }
+
     }
 }

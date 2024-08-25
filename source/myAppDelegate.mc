@@ -22,11 +22,17 @@ class myAppDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
+    function onSelect() as Boolean {
+        _view.startStopTimer();
+        return true;
+    }
+     
+
     public function onNextPage() as Boolean {
         //myAppApp._someScore = 2;
         //_myThing.addScore();
-        _view.addScore(1);
-        requestUpdate();
+        //_view.addScore(1);
+        //requestUpdate();
         //myAppView.addScore();
         return true;
     }
