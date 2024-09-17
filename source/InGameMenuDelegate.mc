@@ -2,7 +2,7 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-class myAppMenuDelegate extends WatchUi.MenuInputDelegate {
+class InGameMenuDelegate extends WatchUi.MenuInputDelegate {
 
     private var _view = getView();
     
@@ -13,10 +13,12 @@ class myAppMenuDelegate extends WatchUi.MenuInputDelegate {
     function onMenuItem(item as Symbol) as Void {
         if (item == :item_1) {
             _view.addScore(1);
-            //System.println("item 1");
         } else if (item == :item_2) {
             _view.addScore(2);
-            //System.println("item 2");
+        } else if (item == :item_4) {
+            _view.correctScore(1);
+        } else if (item == :item_5) {
+            _view.correctScore(2);
         }
     }
 

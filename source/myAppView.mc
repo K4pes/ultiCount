@@ -50,7 +50,7 @@ class myAppView extends WatchUi.View {
         _circleTwo = findDrawableById("circle_two");
         _circleThree = findDrawableById("circle_three");
         _circleFour = findDrawableById("circle_four");
-        
+        calculateRatio();
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -69,7 +69,7 @@ class myAppView extends WatchUi.View {
         _pointTimeLabel.setText(convertSecondsToTimerString(_elapsedSecondsPoint));
         _myTime = System.getClockTime();
         _clockLabel.setText(_myTime.hour.format("%02d") + ":" +  _myTime.min.format("%02d"));
-        
+        calculateRatio();
     }
 
     // Called when this View is removed from the screen. Save the
@@ -87,37 +87,72 @@ class myAppView extends WatchUi.View {
         } else {
             _scoreDark++;
         }
-        calculateRatio();
+        WatchUi.requestUpdate();
+        //calculateRatio();
+    }
+    public function correctScore(team as Number) as Void {
+        //might need to do some correcting to time here... later
+        
+        if (team == 1){
+            if(_scoreLight > 0){
+                _scoreLight--;
+            }
+        } else {
+            if(_scoreDark > 0){
+                _scoreDark--;
+            }
+        }
+        //calculateRatio();
+        WatchUi.requestUpdate();
     }
 
     public function calculateRatio() as Void{
         //add scores, calculate, and display which is the correct Gender Ratio
         // A = 0, B = 1
+        var _boolTrueStartingWomen ;
+        var _boolTrueStartingMen ;
+        if (Application.getApp().getStartingGender().equals("fourWomen")) {
+            _boolTrueStartingWomen = true;
+            _boolTrueStartingMen = false;
+        } else {
+            _boolTrueStartingWomen = false;
+            _boolTrueStartingMen = true;            
+        }
+
+
         var scoreSum = _scoreDark + _scoreLight;
         var scoreMod = scoreSum % 4;
         switch (scoreMod) {
             case 0:
-                _ratioWomenPng.setVisible(true);
-                _ratioMenPng.setVisible(false);
-                _circleFour.setVisible(false);
+                _ratioWomenPng.setVisible(_boolTrueStartingWomen);
+                _ratioMenPng.setVisible(_boolTrueStartingMen);
                 _circleOne.setVisible(true);
+                _circleTwo.setVisible(false);
+                _circleThree.setVisible(false);
+                _circleFour.setVisible(false);
                 break;
             case 1:
-                _ratioWomenPng.setVisible(false);
-                _ratioMenPng.setVisible(true);
-                _circleOne.setVisible(false);
+                _ratioWomenPng.setVisible(_boolTrueStartingMen);
+                _ratioMenPng.setVisible(_boolTrueStartingWomen);
+                _circleOne.setVisible(true);
                 _circleTwo.setVisible(true);
+                _circleThree.setVisible(false);
+                _circleFour.setVisible(false);
                 break;
             case 2:
-                _ratioWomenPng.setVisible(false);
-                _ratioMenPng.setVisible(true);
-                _circleTwo.setVisible(false);
+                _ratioWomenPng.setVisible(_boolTrueStartingMen);
+                _ratioMenPng.setVisible(_boolTrueStartingWomen);
+                _circleOne.setVisible(true);
+                _circleTwo.setVisible(true);
                 _circleThree.setVisible(true);
+                _circleFour.setVisible(false);
                 break;
             case 3:
-                _ratioWomenPng.setVisible(true);
-                _ratioMenPng.setVisible(false);
-                _circleThree.setVisible(false);
+                _ratioWomenPng.setVisible(_boolTrueStartingWomen);
+                _ratioMenPng.setVisible(_boolTrueStartingMen);
+                _circleOne.setVisible(true);
+                _circleTwo.setVisible(true);
+                _circleThree.setVisible(true);
                 _circleFour.setVisible(true);
                 break;
         }
@@ -131,10 +166,10 @@ class myAppView extends WatchUi.View {
         _elapsedSecondsPoint++;
         _potentialElapsedSecondsPoint++;
         if (_elapsedSecondsPoint == 46) {
-            WatchUi.showToast("Offense Ready", {:icon=>Rez.Drawables.warningToastIcon});         
+            WatchUi.showToast("Off. Ready", {:icon=>Rez.Drawables.warningToastIcon});         
             goodVibes();
         }else if (_elapsedSecondsPoint == 61) {
-            WatchUi.showToast("Defense Ready", {:icon=>Rez.Drawables.warningToastIcon});
+            WatchUi.showToast("Def. Ready", {:icon=>Rez.Drawables.warningToastIcon});
             goodVibes();
         }
 

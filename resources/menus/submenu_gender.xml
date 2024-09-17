@@ -1,0 +1,4 @@
+<menu2 id="genderMenu" title="Gender Ratio">
+  <icon-menu-item id="fourWomen" label="4 Women" subLabel="3 Men" icon="@Drawables.gender_women" />
+  <icon-menu-item id="fourMen" label="4 Men" subLabel="3 Women" icon="@Drawables.gender_men" />    
+</menu2>

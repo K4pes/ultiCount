@@ -3,4 +3,6 @@
     <string id="menu_label_1">Score! Light</string>
     <string id="menu_label_2">Score! Dark</string>
     <string id="menu_label_3">Cancel</string>
+    <string id="menu_label_4">-1 Score Light</string>
+    <string id="menu_label_5">-1 Score Dark</string>
 </strings>
