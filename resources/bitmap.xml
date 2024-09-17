@@ -1,8 +1,0 @@
-<resources>
-    <bitmap id="gender_women_highlight" filename="drawables/gender_women_LD.png" />
-    <bitmap id="gender_men_highlight" filename="drawables/gender_men_LD.png" />
-    <bitmap id="gender_women_LightOutline" filename="drawables/Gender_Women_White_outline.png" />
-    <bitmap id="gender_men_LightOutline" filename="drawables/Gender_Men_White_outline.png" />
-    <bitmap id="gender_women_DarkOutline" filename="drawables/Gender_Women_Black_outline.png" />
-    <bitmap id="gender_men_DarkOutline" filename="drawables/Gender_Men_Black_outline.png" />
-</resources>
