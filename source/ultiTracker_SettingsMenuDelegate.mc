@@ -16,6 +16,9 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
                 // When the toggle menu item is selected, push the gender ratio menu             
                 updateGenderInMenu(Application.getApp());
                 WatchUi.pushView(_genderMenu, new myAppSettingsSubMenuDelegate(), WatchUi.SLIDE_UP);
+            } else if (id.equals("exitApp")){
+                //in future have confirmation dialog here
+                System.exit();
             }
     }
     //! Handle the back key being pressed
