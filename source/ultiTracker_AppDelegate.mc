@@ -63,8 +63,20 @@ class MyInputDelegate extends WatchUi.InputDelegate {
     //     return true;
     // }
 
-    // function onSwipe(swipeEvent) {
-    //     System.println(swipeEvent.getDirection()); // e.g. SWIPE_DOWN = 2
-    //     return true;
-    // }
+    function onSwipe(swipeEvent) {
+        if(swipeEvent.getDirection() == 0){
+            WatchUi.pushView(new Rez.Menus.InGameMenu(), new InGameMenuDelegate(), WatchUi.SLIDE_UP);
+        }else if(swipeEvent.getDirection() == 2){
+            WatchUi.pushView(_settingsMenu, new myAppSettingsMenuDelegate(), WatchUi.SLIDE_BLINK);
+        }
+
+        // returning true to block all system handling of swipes
+        return true;
+    }
+
+    function onDrag(dragEvent){
+
+        return true;
+    }
+
 }

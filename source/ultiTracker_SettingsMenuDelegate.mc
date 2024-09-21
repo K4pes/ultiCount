@@ -11,15 +11,17 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
     }
     
     public function onSelect(item as MenuItem) as Void {
-        var id = item.getId().toString() as String;
-            if (id.equals("genderMenu")) {
-                // When the toggle menu item is selected, push the gender ratio menu             
-                updateGenderInMenu(Application.getApp());
-                WatchUi.pushView(_genderMenu, new myAppSettingsSubMenuDelegate(), WatchUi.SLIDE_UP);
-            } else if (id.equals("exitApp")){
-                //in future have confirmation dialog here
-                System.exit();
-            }
+        var dialog = new WatchUi.Confirmation("Really want to Exit?");
+        WatchUi.pushView(dialog, new ConfirmationDialogDelegate(), WatchUi.SLIDE_IMMEDIATE);
+        //var id = item.getId().toString() as String;
+        //    if (id.equals("genderMenu")) {
+        //        // When the toggle menu item is selected, push the gender ratio menu             
+        //        updateGenderInMenu(Application.getApp());
+        //        WatchUi.pushView(_genderMenu, new myAppSettingsSubMenuDelegate(), WatchUi.SLIDE_UP);
+        //    } else if (id.equals("exitApp")){
+        //        //in future have confirmation dialog here
+        //        System.exit();
+        //    }
     }
     //! Handle the back key being pressed
     public function onBack() as Void {
