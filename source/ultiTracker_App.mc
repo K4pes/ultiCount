@@ -61,7 +61,10 @@ class myAppApp extends Application.AppBase {
         }
     }
 
-
+    function exitApp () as Void {
+        var dialog = new WatchUi.Confirmation("Really want to Exit?");
+        WatchUi.pushView(dialog, new ConfirmationDialogDelegate(), WatchUi.SLIDE_IMMEDIATE);
+    }
 
 }
 
