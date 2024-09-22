@@ -11,8 +11,7 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
     }
     
     public function onSelect(item as MenuItem) as Void {
-                
-        var theItemId = item.getId().toString() as String;       
+                   
         var theItemLabel = item.getLabel() as String;    
 
         if (theItemLabel.equals("Gender Ratio")) {

@@ -65,9 +65,12 @@ class MyInputDelegate extends WatchUi.InputDelegate {
 
     function onSwipe(swipeEvent) {
         if(swipeEvent.getDirection() == 0){
+            //swipe up
+            _view.startNewPotentialPointClock();
             WatchUi.pushView(new Rez.Menus.InGameMenu(), new InGameMenuDelegate(), WatchUi.SLIDE_UP);
         }else if(swipeEvent.getDirection() == 2){
-            WatchUi.pushView(_settingsMenu, new myAppSettingsMenuDelegate(), WatchUi.SLIDE_BLINK);
+            //swipe down
+            WatchUi.pushView(_settingsMenu, new myAppSettingsMenuDelegate(), WatchUi.SLIDE_DOWN);
         }
 
         // returning true to block all system handling of swipes
