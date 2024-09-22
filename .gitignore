@@ -1,5 +1,5 @@
 bin/
-Builds/gen/
-Builds/internal-mir/
-Builds/mir/
-Builds/*.debug.xml
+Builds/*/gen/
+Builds/*/internal-mir/
+Builds/*/mir/
+Builds/*/*.debug.xml
