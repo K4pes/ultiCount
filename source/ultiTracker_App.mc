@@ -27,10 +27,18 @@ class myAppApp extends Application.AppBase {
     }
 
     // Return the initial view of your application here
+    // for SDK 7+
     function getInitialView() as [Views] or [Views, InputDelegates] {
         _view = new myAppView();
-        return [_view, new MyInputDelegate()] as Array<Views or InputDelegates>;
+        //return [ _view, new myAppDelegate() ];
+        return [ _view, new MyInputDelegate() ];
     }
+
+    // //for SDK <7.0.0
+    //   public function getInitialView() as Array<Views or InputDelegates>? {
+    //     _view = new myAppView();
+    //     return [_view, new MyInputDelegate()] as Array<Views or InputDelegates>;
+    // }
 
     // Returns main view Instance
     function getView() as myAppView {
@@ -65,22 +73,35 @@ class myAppApp extends Application.AppBase {
             var vibeData;
             switch (vibeType) {
                 case 1:
-                    // 50% Strength, 0.25 seconds
+                    // 50% Strength, 0.25 seconds   
                     vibeData = [ new Attention.VibeProfile(50, 250)];
-                case 2:
+                    break;                
+                case 2: 
                     // 50% Strength, 0.15 seconds
                     vibeData = [ new Attention.VibeProfile(50, 150)];
-                case 3:
+                    break;
+                case 3:                     
                     // 50% Strength, 0.15 seconds, off for 0.05, 50% Strength, 0.15 seconds
                     vibeData = 
                         [
                          new Attention.VibeProfile(50, 150),
-                         new Attention.VibeProfile(0, 50),
+                         new Attention.VibeProfile(0, 75),
                          new Attention.VibeProfile(50, 150)
                         ];
-                default:
+                    break;
+                case 4:                    
+                    // 50% Strength, 0.15 seconds, off for 0.1, 25% Strength, 0.15 seconds
+                    vibeData = 
+                        [
+                         new Attention.VibeProfile(50, 200),
+                         new Attention.VibeProfile(0, 100),
+                         new Attention.VibeProfile(25, 150)
+                        ];
+                    break;
+                default: {                    
                     // 50% Strength, 0.25 seconds
                     vibeData = [ new Attention.VibeProfile(50, 250)];
+                }
 
             }
             Attention.vibrate(vibeData);
