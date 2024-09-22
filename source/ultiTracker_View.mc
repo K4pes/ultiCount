@@ -87,6 +87,7 @@ class myAppView extends WatchUi.View {
         } else {
             _scoreDark++;
         }
+        Application.getApp().goodVibes(1);
         WatchUi.requestUpdate();
         //calculateRatio();
     }
@@ -103,7 +104,7 @@ class myAppView extends WatchUi.View {
             }
         }
         //calculateRatio();
-        Application.getApp().goodVibes(1);
+        Application.getApp().goodVibes(4);
         WatchUi.requestUpdate();
     }
 

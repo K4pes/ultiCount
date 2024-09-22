@@ -46,6 +46,7 @@ class MyInputDelegate extends WatchUi.InputDelegate {
 
     function onKey(keyEvent) {
         if(keyEvent.getKey() == 4){
+            Application.getApp().goodVibes(1);
             _view.startStopTimer();
         }else if(keyEvent.getKey() == 5){
             _view.startNewPotentialPointClock();

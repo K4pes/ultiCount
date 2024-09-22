@@ -29,8 +29,7 @@ class myAppApp extends Application.AppBase {
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
         _view = new myAppView();
-        //return [ _view, new myAppDelegate() ];
-        return [ _view, new MyInputDelegate() ];
+        return [_view, new MyInputDelegate()] as Array<Views or InputDelegates>;
     }
 
     // Returns main view Instance
