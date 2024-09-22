@@ -8,8 +8,8 @@
     <label id="id_clock"  x="center" y="32%" text="00:00" font="Graphics.FONT_TINY" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" />
     <label id="id_gameTimer"  x="center" y="37%" text="00:00:00" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_CENTER" />
     <label id="id_pointTimer"  x="center" y="57%" text="00:00:00" font="Graphics.FONT_TINY" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <!-- <bitmap id="gender_women" x="center" y="70%" visible="true" filename="../drawables/gender_women_LD.png" /> -->
-    <!-- <bitmap id="gender_men" x="center" y="70%" visible="false" filename="../drawables/gender_men_LD.png" /> -->
+    <bitmap id="gender_women_large" x="center" y="68%" visible="true" filename="../drawables/Gender_Women_White_outline_50px.png" />
+    <bitmap id="gender_men_large" x="center" y="68%" visible="false" filename="../drawables/Gender_Men_White_outline_50px.png" />
     <drawable id="circle_one" visible="true"/>
     <drawable id="circle_two" visible="false"/>
     <drawable id="circle_three" visible="false"/>

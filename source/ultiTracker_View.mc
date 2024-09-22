@@ -44,8 +44,8 @@ class myAppView extends WatchUi.View {
         _gameTimeLabel = findDrawableById("id_gameTimer");
         _pointTimeLabel = findDrawableById("id_pointTimer");
         _clockLabel = findDrawableById("id_clock");
-        _ratioWomenPng = findDrawableById("gender_women");
-        _ratioMenPng = findDrawableById("gender_men");
+        _ratioWomenPng = findDrawableById("gender_women_large");
+        _ratioMenPng = findDrawableById("gender_men_large");
         _circleOne = findDrawableById("circle_one");
         _circleTwo = findDrawableById("circle_two");
         _circleThree = findDrawableById("circle_three");
@@ -103,6 +103,7 @@ class myAppView extends WatchUi.View {
             }
         }
         //calculateRatio();
+        Application.getApp().goodVibes(1);
         WatchUi.requestUpdate();
     }
 
@@ -167,10 +168,10 @@ class myAppView extends WatchUi.View {
         _potentialElapsedSecondsPoint++;
         if (_elapsedSecondsPoint == 46) {
             WatchUi.showToast("Off. Ready", {:icon=>Rez.Drawables.warningToastIcon});         
-            goodVibes();
+            Application.getApp().goodVibes(2);
         }else if (_elapsedSecondsPoint == 61) {
             WatchUi.showToast("Def. Ready", {:icon=>Rez.Drawables.warningToastIcon});
-            goodVibes();
+            Application.getApp().goodVibes(3);
         }
 
         WatchUi.requestUpdate();
@@ -188,12 +189,7 @@ class myAppView extends WatchUi.View {
         return timeString;
     }
 
-    public function goodVibes() as Void{
-        if (Attention has :vibrate) {
-            var vibeData = [ new Attention.VibeProfile(50, 250)];// On for 0.25 seconds
-            Attention.vibrate(vibeData);
-        }
-    }
+
 
     public function startStopTimer() as Void {
         if (_timeRunning == false) {

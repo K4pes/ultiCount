@@ -61,6 +61,33 @@ class myAppApp extends Application.AppBase {
         }
     }
 
+    public function goodVibes(vibeType as Number) as Void{
+        if (Attention has :vibrate) {
+            var vibeData;
+            switch (vibeType) {
+                case 1:
+                    // 50% Strength, 0.25 seconds
+                    vibeData = [ new Attention.VibeProfile(50, 250)];
+                case 2:
+                    // 50% Strength, 0.15 seconds
+                    vibeData = [ new Attention.VibeProfile(50, 150)];
+                case 3:
+                    // 50% Strength, 0.15 seconds, off for 0.05, 50% Strength, 0.15 seconds
+                    vibeData = 
+                        [
+                         new Attention.VibeProfile(50, 150),
+                         new Attention.VibeProfile(0, 50),
+                         new Attention.VibeProfile(50, 150)
+                        ];
+                default:
+                    // 50% Strength, 0.25 seconds
+                    vibeData = [ new Attention.VibeProfile(50, 250)];
+
+            }
+            Attention.vibrate(vibeData);
+        }
+    }
+
     function exitApp () as Void {
         var dialog = new WatchUi.Confirmation("Really want to Exit?");
         WatchUi.pushView(dialog, new ConfirmationDialogDelegate(), WatchUi.SLIDE_IMMEDIATE);

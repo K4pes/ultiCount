@@ -19,8 +19,6 @@ class InGameMenuDelegate extends WatchUi.MenuInputDelegate {
             _view.correctScore(1);
         } else if (item == :item_5) {
             _view.correctScore(2);
-        } else if (item == :item_6) {
-            Application.getApp().exitApp();            
         }
     }
 
