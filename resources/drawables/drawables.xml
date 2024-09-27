@@ -10,10 +10,4 @@
     <bitmap id="gender_men_LightOutline" filename="Gender_Men_White_outline.png" />
     <bitmap id="gender_women_DarkOutline" filename="Gender_Women_Black_outline.png" />
     <bitmap id="gender_men_DarkOutline" filename="Gender_Men_Black_outline.png" />
-
-    <drawable-list id="myRect" />
-     <bitmap id="warningToastIcon" personality="
-        system_icon_light__about 
-        system_size__toast_icon
-    "/>
 </drawables>

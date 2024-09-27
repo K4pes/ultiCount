@@ -167,12 +167,14 @@ class myAppView extends WatchUi.View {
         _elapsedSecondsGame++;
         _elapsedSecondsPoint++;
         _potentialElapsedSecondsPoint++;
-        if (_elapsedSecondsPoint == 46) {
-            WatchUi.showToast("Off. Ready", {:icon=>Rez.Drawables.warningToastIcon});         
-            Application.getApp().goodVibes(2);
-        }else if (_elapsedSecondsPoint == 61) {
-            WatchUi.showToast("Def. Ready", {:icon=>Rez.Drawables.warningToastIcon});
-            Application.getApp().goodVibes(3);
+        if (Toybox has :showToast){
+            if (_elapsedSecondsPoint == 46) {
+                WatchUi.showToast("Off. Ready", {:icon=>Rez.Drawables.warningToastIcon});         
+                Application.getApp().goodVibes(2);
+            }else if (_elapsedSecondsPoint == 61) {
+                WatchUi.showToast("Def. Ready", {:icon=>Rez.Drawables.warningToastIcon});
+                Application.getApp().goodVibes(3);
+            }
         }
 
         WatchUi.requestUpdate();
