@@ -59,11 +59,6 @@ class MyInputDelegate extends WatchUi.InputDelegate {
         return true;
     }
 
-    // function onTap(clickEvent) {
-    //     System.println(clickEvent.getType());      // e.g. CLICK_TYPE_TAP = 0
-    //     return true;
-    // }
-
     function onSwipe(swipeEvent) {
         if(swipeEvent.getDirection() == 0){
             //swipe up
@@ -79,8 +74,26 @@ class MyInputDelegate extends WatchUi.InputDelegate {
     }
 
     function onDrag(dragEvent){
-
+        return true;
+    }
+    
+    function onTap(clickEvent) {
         return true;
     }
 
+    function onFlick(flickEvent) {
+        return true;
+    }
+    
+    function onHold(clickEvent) {
+        return true;
+    }
+
+    function onRelease(clickEvent) {
+        return true;
+    }
+
+    function onSelectable(selectableEvent) {
+        return true;
+    }
 }
