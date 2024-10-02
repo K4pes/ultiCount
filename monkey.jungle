@@ -1,1 +1,10 @@
 project.manifest = manifest.xml
+
+
+# Say that all products exclude declarations
+# with the annotation :apiPreThreeThree
+# Assumption is that most devices will be with API after 3.3.
+base.excludeAnnotations = apiPreThreeThree
+
+# Older devices exclude the annotation :apiPostThreeThree
+fr245.excludeAnnotations = apiPostThreeThree

@@ -162,22 +162,45 @@ class myAppView extends WatchUi.View {
 
     }
 
+    
     //! Callback for timer 1
     public function callback1() as Void {
         _elapsedSecondsGame++;
         _elapsedSecondsPoint++;
         _potentialElapsedSecondsPoint++;
-        if (Toybox has :showToast){
-            if (_elapsedSecondsPoint == 46) {
+        
+        if (_elapsedSecondsPoint == 61) {
+            timeWarnings(1);
+        }else if (_elapsedSecondsPoint == 76) {
+            timeWarnings(2);
+        }        
+        WatchUi.requestUpdate();
+    }
+
+    (:apiPostThreeThree)
+    public function timeWarnings(warningType as Number) as Void {
+        switch(warningType) {
+            case 1:
                 WatchUi.showToast("Off. Ready", {:icon=>Rez.Drawables.warningToastIcon});         
                 Application.getApp().goodVibes(2);
-            }else if (_elapsedSecondsPoint == 61) {
-                WatchUi.showToast("Def. Ready", {:icon=>Rez.Drawables.warningToastIcon});
+                break;
+            case 2:
+                WatchUi.showToast("Pull", {:icon=>Rez.Drawables.warningToastIcon});
                 Application.getApp().goodVibes(3);
-            }
-        }
+                break;
+        }  
+    }
 
-        WatchUi.requestUpdate();
+    (:apiPreThreeThree)
+    public function timeWarnings(warningType as Number) as Void {
+        switch(warningType) {
+            case 1:                
+                Application.getApp().goodVibes(2);
+                break;
+            case 2:
+                Application.getApp().goodVibes(3);
+                break;
+        }  
     }
 
     public function startNewPotentialPointClock() as Void {
