@@ -4,7 +4,7 @@ import Toybox.WatchUi;
 
 class myAppApp extends Application.AppBase {
     public var _someScore;
-    private var _view;
+    private var _mainView;
     private var _startingGender;
     private var _genderMenu;
     private var _settingsMenu;
@@ -29,20 +29,20 @@ class myAppApp extends Application.AppBase {
     // Return the initial view of your application here
     // for SDK 7+
     function getInitialView() as [Views] or [Views, InputDelegates] {
-        _view = new myAppView();
-        //return [ _view, new myAppDelegate() ];
-        return [ _view, new MyInputDelegate() ];
+        _mainView = new mainGameView();
+        //return [ _mainView, new myAppDelegate() ];
+        return [ _mainView, new gameViewInputDelegate() ];
     }
 
     // //for SDK <7.0.0
     //   public function getInitialView() as Array<Views or InputDelegates>? {
-    //     _view = new myAppView();
-    //     return [_view, new MyInputDelegate()] as Array<Views or InputDelegates>;
+    //     _mainView = new mainGameView();
+    //     return [_mainView, new gameViewInputDelegate()] as Array<Views or InputDelegates>;
     // }
 
     // Returns main view Instance
-    function getView() as myAppView {
-        return _view;
+    function getMainView() as mainGameView {
+        return _mainView;
     }
 
     // Returns genderMenu
@@ -120,8 +120,8 @@ function getApp() as myAppApp {
 }
 
 //Returns main view instance
-function getView() as myAppView{
-    return Application.getApp().getView();
+function getMainView() as mainGameView{
+    return Application.getApp().getMainView();
 }
 
 // Returns genderMenu

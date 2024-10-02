@@ -4,7 +4,7 @@ import Toybox.WatchUi;
 
 class InGameMenuDelegate extends WatchUi.MenuInputDelegate {
 
-    private var _view = getView();
+    private var _mainView = getMainView();
     
     function initialize() {
         MenuInputDelegate.initialize();
@@ -12,13 +12,13 @@ class InGameMenuDelegate extends WatchUi.MenuInputDelegate {
 
     function onMenuItem(item as Symbol) as Void {
         if (item == :item_1) {
-            _view.addScore(1);
+            _mainView.addScore(1);
         } else if (item == :item_2) {
-            _view.addScore(2);
+            _mainView.addScore(2);
         } else if (item == :item_4) {
-            _view.correctScore(1);
+            _mainView.correctScore(1);
         } else if (item == :item_5) {
-            _view.correctScore(2);
+            _mainView.correctScore(2);
         }
     }
 

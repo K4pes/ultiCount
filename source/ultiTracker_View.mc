@@ -5,7 +5,7 @@ import Toybox.Timer;
 import Toybox.System;
 import Toybox.Attention;
 
-class myAppView extends WatchUi.View {
+class mainGameView extends WatchUi.View {
     public var _scoreLight as Number = 0;
     public var _scoreDark as Number = 0;
     public var _scoreLightLabel;

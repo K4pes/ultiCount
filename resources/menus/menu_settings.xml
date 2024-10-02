@@ -1,4 +1,5 @@
 <menu2 id="SettingsMenu" title="Settings">
-  <menu-item id="genderMenu" label="Gender Ratio" subLabel="4 Female-matching"></menu-item>
+  <menu-item id="genderMenu" label="Initial Gender Ratio" subLabel="4 Female-matching"></menu-item>
+  <menu-item id="aboutView" label="About"></menu-item>
   <menu-item id="exitApp" label="Exit App"></menu-item>
 </menu2>

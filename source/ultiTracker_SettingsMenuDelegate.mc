@@ -14,10 +14,13 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
                    
         var theItemLabel = item.getLabel() as String;    
 
-        if (theItemLabel.equals("Gender Ratio")) {
+        if (theItemLabel.equals("Initial Gender Ratio")) {
             // Push the gender ratio menu             
             updateGenderInMenu(Application.getApp());
             WatchUi.pushView(_genderMenu, new myAppSettingsSubMenuDelegate(), WatchUi.SLIDE_UP);
+        }else if (theItemLabel.equals("About")){
+            var _aboutView = new aboutView();
+            WatchUi.pushView(_aboutView, new aboutViewDelegate(_aboutView), WatchUi.SLIDE_BLINK);
         } else if (theItemLabel.equals("Exit App")){
             //Call the exitApp function of the App - confirms app exit with user
             Application.getApp().exitApp();

@@ -5,4 +5,9 @@
     <string id="menu_label_3">Cancel</string>
     <string id="menu_label_4">-1 Score Light</string>
     <string id="menu_label_5">-1 Score Dark</string>
+    <string id="about_1">This App wont make you play better ultimate, but it will certainly help you keep track of the score!</string>
+    <string id="about_2">Press the start/enter button to start the game clock.</string>
+    <string id="about_3">To add/remove scores, swipe up or press the back/lap button.</string>
+    <string id="about_4">For all other functions, swipe down or press the down button.</string>
+    <string id="about_5">Version: 1.0.0.</string>
 </strings>
