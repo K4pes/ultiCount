@@ -42,23 +42,26 @@ class aboutViewDelegate extends WatchUi.BehaviorDelegate {
 
     public function updateText() as Void{
         var _myTextArea;
-        var _bottomEllipsis;
-        var _topEllipsis;  
-        _bottomEllipsis = _aboutView.findDrawableById("id_bottomEllipsis");
-        _topEllipsis = _aboutView.findDrawableById("id_topEllipsis");
+        var _swipeUpIcon;
+        var _swipeDownIcon;
+        
+        _swipeUpIcon = _aboutView.findDrawableById("swipeUp_LightOutline");
+        _swipeDownIcon = _aboutView.findDrawableById("swipeDown_LightOutline");
+        
 
-        if (_aboutStringCtr > _aboutStrIdArr.size()-1){
-            //reached the last string
-            _aboutStringCtr--;
-            _bottomEllipsis.setText("");
-        } else if (_aboutStringCtr <  0){
-            //reached the first string
-            _aboutStringCtr++;
-            _topEllipsis.setText("");
+        if (_aboutStringCtr >= _aboutStrIdArr.size()-1){
+            //At last string or trying to go past the last string
+            _aboutStringCtr = _aboutStrIdArr.size() - 1;
+            _swipeDownIcon.setVisible(false);
+        } else if (_aboutStringCtr <=  0){
+            // At first string or trying to go past the first string
+            _aboutStringCtr = 0;
+            _swipeUpIcon.setVisible(false);
         } else {
-            _topEllipsis.setText("...");
-            _bottomEllipsis.setText("...");
+            _swipeUpIcon.setVisible(true);
+            _swipeDownIcon.setVisible(true);
         }
+
         _myTextArea = _aboutView.findDrawableById("id_aboutTextArea");
         _myTextArea.setText(_aboutStrIdArr[_aboutStringCtr]);
         WatchUi.requestUpdate();

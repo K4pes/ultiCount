@@ -10,4 +10,6 @@
     <bitmap id="gender_men_LightOutline" filename="Gender_Men_White_outline.png" />
     <bitmap id="gender_women_DarkOutline" filename="Gender_Women_Black_outline.png" />
     <bitmap id="gender_men_DarkOutline" filename="Gender_Men_Black_outline.png" />
+    <bitmap id="swipeUp_LightOutline" filename="swipe_up_whiteoutline.png" />
+    <bitmap id="swipeDown_LightOutline" filename="swipe_down_whiteoutline.png" />
 </drawables>
