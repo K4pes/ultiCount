@@ -20,7 +20,7 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             WatchUi.pushView(_genderMenu, new myAppSettingsSubMenuDelegate(), WatchUi.SLIDE_UP);
         }else if (theItemLabel.equals("About")){
             var _aboutView = new aboutView();
-            WatchUi.pushView(_aboutView, new aboutViewDelegate(_aboutView), WatchUi.SLIDE_BLINK);
+            WatchUi.pushView(_aboutView, new aboutViewDelegate(_aboutView,false), WatchUi.SLIDE_BLINK);
         } else if (theItemLabel.equals("Exit App")){
             //Call the exitApp function of the App - confirms app exit with user
             Application.getApp().exitApp();

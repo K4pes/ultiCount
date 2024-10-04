@@ -8,6 +8,7 @@ class myAppApp extends Application.AppBase {
     private var _startingGender;
     private var _genderMenu;
     private var _settingsMenu;
+    private var _initialRun;
     
 
     function initialize() {
@@ -19,7 +20,11 @@ class myAppApp extends Application.AppBase {
     }
 
     // onStart() is called on application start up
-    function onStart(state as Dictionary?) as Void {
+    function onStart(state as Dictionary?) as Void { 
+        //test if app has been run before 
+        //(if it has, then a storage key initialRun with value false is in storage)
+        _initialRun = Application.Storage.getValue("initialRun");
+        Application.Storage.setValue("initialRun", false);
     }
 
     // onStop() is called when your application is exiting
@@ -31,7 +36,13 @@ class myAppApp extends Application.AppBase {
     function getInitialView() as [Views] or [Views, InputDelegates] {
         _mainView = new mainGameView();
         //return [ _mainView, new myAppDelegate() ];
-        return [ _mainView, new gameViewInputDelegate() ];
+        if (_initialRun == null) {
+            //initialRun has not been set, initial screen is screen
+            var _aboutView = new aboutView();
+            return [_aboutView, new aboutViewDelegate(_aboutView, true)];
+        } else {
+            return [ _mainView, new gameViewInputDelegate() ];
+        }
     }
 
     // //for SDK <7.0.0
