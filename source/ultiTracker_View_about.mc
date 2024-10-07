@@ -3,7 +3,7 @@ import Toybox.Graphics;
 import Toybox.WatchUi;
 import Toybox.System;
 
-class aboutView extends WatchUi.View {
+class AboutView extends WatchUi.View {
     
 
     public function initialize() {

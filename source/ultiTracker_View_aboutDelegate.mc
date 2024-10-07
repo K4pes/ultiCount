@@ -1,11 +1,11 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-class aboutViewDelegate extends WatchUi.BehaviorDelegate {    
+class AboutViewDelegate extends WatchUi.BehaviorDelegate {    
     private var _aboutView;
-    var _aboutStringCtr as Number;
-    var _aboutStrIdArr = new [5];
-    var _shownAsWelcome as Boolean;
+    private var _aboutStringCtr as Number;
+    private var _aboutStrIdArr = new [5];
+    private var _shownAsWelcome as Boolean;
 
     public function initialize(aboutView, isWelcomeScreen as Boolean) {
         BehaviorDelegate.initialize();        
@@ -21,7 +21,7 @@ class aboutViewDelegate extends WatchUi.BehaviorDelegate {
 
     function onBack() as Boolean {
         if (_shownAsWelcome == true){
-            WatchUi.switchToView(Application.getApp().getMainView(), new gameViewInputDelegate(), WatchUi.SLIDE_BLINK);
+            WatchUi.switchToView(Application.getApp().getMainView(), new GameViewInputDelegate(), WatchUi.SLIDE_BLINK);
         } else {
             WatchUi.popView(WatchUi.SLIDE_BLINK);
         }     
@@ -64,7 +64,7 @@ class aboutViewDelegate extends WatchUi.BehaviorDelegate {
             // trying to go past the last string
             _aboutStringCtr = _aboutStrIdArr.size() - 1;
             if (_shownAsWelcome == true){
-                WatchUi.switchToView(Application.getApp().getMainView(), new gameViewInputDelegate(), WatchUi.SLIDE_BLINK);
+                WatchUi.switchToView(Application.getApp().getMainView(), new GameViewInputDelegate(), WatchUi.SLIDE_BLINK);
             }
         } else if (_aboutStringCtr <=  0){
             // At first string or trying to go past the first string

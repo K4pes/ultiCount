@@ -5,32 +5,30 @@ import Toybox.Timer;
 import Toybox.System;
 import Toybox.Attention;
 
-class mainGameView extends WatchUi.View {
-    public var _scoreLight as Number = 0;
-    public var _scoreDark as Number = 0;
-    public var _scoreLightLabel;
-    public var _scoreDarkLabel;
+class MainGameView extends WatchUi.View {
+    private var _scoreLight as Number = 0;
+    private var _scoreDark as Number = 0;
+    private var _scoreLightLabel;
+    private var _scoreDarkLabel;
     public var _timeRunning as Boolean = false;  
     private var _elapsedSecondsGame as Number = 0;
     private var _elapsedSecondsPoint as Number = 0;
     private var _potentialElapsedSecondsPoint as Number = 0;
-    var _timer1;
-    var _myTime;
-    var _gameTimeLabel;
-    var _pointTimeLabel;
-    var _clockLabel;
-    var _ratioWomenPng;
-    var _ratioMenPng;
-    var _circleOne;
-    var _circleTwo;
-    var _circleThree;
-    var _circleFour;
+    private var _timer1;
+    private var _mySystemClockTime;
+    private var _gameTimeLabel;
+    private var _pointTimeLabel;
+    private var _clockLabel;
+    private var _ratioWomenPng;
+    private var _ratioMenPng;
+    private var _circleOne;
+    private var _circleTwo;
+    private var _circleThree;
+    private var _circleFour;
     //_typeTitleElement = findDrawableById("type_title");
 
     public function initialize() {
         View.initialize();
-        //_scoreLight = 0;
-        //_scoreDark = 0;
     }
 
     // Load your resources here
@@ -39,7 +37,6 @@ class mainGameView extends WatchUi.View {
         _scoreLightLabel = findDrawableById("id_scoreLights");
         _scoreDarkLabel = findDrawableById("id_scoreDarks");
         _timer1 = new Timer.Timer();
-        // _timer1.start(method(:callback1), 1000, true);
         
         _gameTimeLabel = findDrawableById("id_gameTimer");
         _pointTimeLabel = findDrawableById("id_pointTimer");
@@ -67,8 +64,8 @@ class mainGameView extends WatchUi.View {
         _scoreDarkLabel.setText(_scoreDark.format("%02d"));
         _gameTimeLabel.setText(convertSecondsToTimerString(_elapsedSecondsGame));
         _pointTimeLabel.setText(convertSecondsToTimerString(_elapsedSecondsPoint));
-        _myTime = System.getClockTime();
-        _clockLabel.setText(_myTime.hour.format("%02d") + ":" +  _myTime.min.format("%02d"));
+        _mySystemClockTime = System.getClockTime();
+        _clockLabel.setText(_mySystemClockTime.hour.format("%02d") + ":" +  _mySystemClockTime.min.format("%02d"));
         calculateRatio();
     }
 

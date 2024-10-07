@@ -1,42 +1,8 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-// class myAppDelegate extends WatchUi.BehaviorDelegate {
-//     private var _mainView = getMainView();
-//     private var _settingsMenu = Application.getApp().getSettingsMenu();
-
-//     public function initialize() {
-//         BehaviorDelegate.initialize();
-//         //_myThing = view;
-//         //WatchUi.View.initialize();
-//     }
-
-//     function onMenu() as Boolean {
-//         //WatchUi.pushView(new Rez.Menus.InGameMenu(), new InGameMenuDelegate(), WatchUi.SLIDE_UP);
-//         return true;
-//     }
-
-//     function onBack() as Boolean {
-//         _mainView.startNewPotentialPointClock();
-//         WatchUi.pushView(new Rez.Menus.InGameMenu(), new InGameMenuDelegate(), WatchUi.SLIDE_UP);
-//         return true;
-//     }
-
-//     function onSelect() as Boolean {
-//         //_mainView.startStopTimer();
-//         return true;
-//     }
-     
-
-//     public function onNextPage() as Boolean {
-//         WatchUi.pushView(_settingsMenu, new myAppSettingsMenuDelegate(), WatchUi.SLIDE_UP);
-//         return true;
-//     }
-
-// }
-
-class gameViewInputDelegate extends WatchUi.InputDelegate {
-    private var _mainView = getMainView();
+class GameViewInputDelegate extends WatchUi.InputDelegate {
+    private var _mainView =Application.getApp().getMainView();
     private var _settingsMenu = Application.getApp().getSettingsMenu();
 
     public function initialize() {
@@ -71,6 +37,10 @@ class gameViewInputDelegate extends WatchUi.InputDelegate {
         // returning true to block all system handling of swipes
         return true;
     }
+
+
+    //Handle all other possible touch actions to prevent any unwanted behaviour
+    //=========================================================================
 
     function onDrag(dragEvent){
         return true;

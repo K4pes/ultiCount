@@ -4,7 +4,7 @@ import Toybox.WatchUi;
 
 class InGameMenuDelegate extends WatchUi.MenuInputDelegate {
 
-    private var _mainView = getMainView();
+    private var _mainView =Application.getApp().getMainView();
     
     function initialize() {
         MenuInputDelegate.initialize();

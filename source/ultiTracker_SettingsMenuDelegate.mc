@@ -4,7 +4,7 @@ import Toybox.WatchUi;
 import Toybox.Graphics;
 
 class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
-    private var _genderMenu = getGenderMenu();   
+    private var _genderMenu = Application.getApp().getGenderMenu();   
     
     function initialize() {
         Menu2InputDelegate.initialize();
@@ -12,30 +12,32 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
     
     public function onSelect(item as MenuItem) as Void {
                    
-        var theItemLabel = item.getLabel() as String;    
+        var _theItemLabel = item.getLabel() as String;    
 
-        if (theItemLabel.equals("Initial Gender Ratio")) {
-            // Push the gender ratio menu             
+        if (_theItemLabel.equals("Initial Gender Ratio")) {
+            // Ensure genderMenu is displaying correctly
+            // then push the gender ratio menu             
             updateGenderInMenu(Application.getApp());
             WatchUi.pushView(_genderMenu, new myAppSettingsSubMenuDelegate(), WatchUi.SLIDE_UP);
-        }else if (theItemLabel.equals("About")){
-            var _aboutView = new aboutView();
-            WatchUi.pushView(_aboutView, new aboutViewDelegate(_aboutView,false), WatchUi.SLIDE_BLINK);
-        } else if (theItemLabel.equals("Exit App")){
+        }else if (_theItemLabel.equals("About")){
+            // Push the about View
+            var _aboutView = new AboutView();
+            WatchUi.pushView(_aboutView, new AboutViewDelegate(_aboutView,false), WatchUi.SLIDE_BLINK);
+        } else if (_theItemLabel.equals("Exit App")){
             //Call the exitApp function of the App - confirms app exit with user
             Application.getApp().exitApp();
         }
     }
     //! Handle the back key being pressed
     public function onBack() as Void {
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        WatchUi.popView(WatchUi.SLIDE_BLINK);
     }
 }
 
 //! This is the menu input delegate shared by all the basic sub-menus in the application
 class myAppSettingsSubMenuDelegate extends WatchUi.Menu2InputDelegate {
-//private var _genderMenu = getGenderMenu();
-private var _startingGender = getStartingGender();
+
+private var _startingGender = Application.getApp().getStartingGender();
     //! Constructor
     public function initialize() {
         Menu2InputDelegate.initialize();        
@@ -44,10 +46,10 @@ private var _startingGender = getStartingGender();
     //! Handle an item being selected
     //! @param item The selected menu item
     public function onSelect(item as MenuItem) as Void {
-        _startingGender = getStartingGender();
-        var idTwo = item.getId().toString() as String;
+        _startingGender = Application.getApp().getStartingGender();
+        var _idTwo = item.getId().toString() as String;
         
-        if (! idTwo.equals(_startingGender)) {            
+        if (! _idTwo.equals(_startingGender)) {            
             Application.getApp().changeStartingGender();            
             updateGenderInMenu(Application.getApp());        
          }
@@ -86,9 +88,6 @@ public function updateGenderInMenu(_thisApp) as Void {
     }
     
     _settingsMenu.getItem(0).setSubLabel(_labelString);
-
-    var _myMenuItem = _genderMenu.getItem(0);
-    _myMenuItem.setIcon(myFemaleIcon);
        
     _genderMenu.getItem(0).setIcon(myFemaleIcon);
     _genderMenu.getItem(1).setIcon(myMaleIcon);
