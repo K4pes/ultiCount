@@ -30,7 +30,7 @@ Be sensible, apps crash, it never harms to have an actual physical scoreboard ar
   
 ## Contribute
 If you have a GitHub account then you can file issues, requests, and recommendations here.  
-Alternatively you can reach out to me at hi@project073.com  
+Alternatively you can reach out to me at hello@project073.com  
 I'm definitely interested in hearing:
 - How the app works on your device, especially in regards to the layout of icons.
 - Which device you wish the app would also run on (so that you can use it?).
