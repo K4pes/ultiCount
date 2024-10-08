@@ -32,7 +32,8 @@ Alternatively you can reach out to me at hi@project073.com
 I'm definitely interested in hearing:
 - How the app works on your device, especially in regards to the layout of icons.
 - Which device you wish the app would also run on (so that you can use it?).
-- How the app could be made better. 
+- How the app could be made better.
+- Any new features you would like to see. Please keep the [vision](#aimvision) of this app in mind though.
   
 
 
