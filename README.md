@@ -16,23 +16,24 @@ This app aims to provide all the information needed to be help keep track of the
 - For all other functions, swipe down or press the down button.
     - Changing initial gender ratio
     - About/Info page
-    - exiting the App
+    - exiting the App  
+Be sensible, apps crash, it never harms to have an actual physical scoreboard around if you're in charge of keeping score for an important game! 
  
 ## Supported Devices
 - Forerunner 165
 - Forerunner 245
 - Fenix 7
 - Venu 3s  
-Get in touch if you want to see your device supported!
+...Get in touch if you want to see your device supported!
   
 ## Contribute
 If you have a GitHub account then you can file issues, requests, and recommendations here.  
 Alternatively you can reach out to me at hi@project073.com  
-I'm interested in hearing:
-- how the app works on your device, especially around the layout of icons.
-- which device you wish the app would also run on (so that you can use it?)
-- how the app could be made better. 
-- 
+I'm definitely interested in hearing:
+- How the app works on your device, especially in regards to the layout of icons.
+- Which device you wish the app would also run on (so that you can use it?).
+- How the app could be made better. 
+  
 
 
 ## Whats new
