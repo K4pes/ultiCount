@@ -2,7 +2,8 @@
 ... is an Open Source Connect IQ App for your Garmin Device that won’t make you play better Ultimate Frisbee, but it will _assist_ you in keeping the score as well as tracking what the gender ratio should be! In true ABBA style.
 
 ## Features
-<img src="https://github.com/K4pes/ultiCount/blob/main/ScreenCaptures/Screenshot_fr165_gameplay_annotated_125DPI.png" width="600" />
+<img src="https://github.com/K4pes/ultiCount/blob/main/ScreenCaptures/Screenshot_fr165_gameplay_annotated_125DPI.png" width="600" />  
+  
 - Game & point clock
 - Tracking of score & gender ratio (incl. setting initial gender ratio)
 - Time limit reminders at the start of points (When should the offence indicate they are ready etc.)
@@ -16,7 +17,8 @@ This app aims to provide all the information needed to be help keep track of the
 - For all other functions, swipe down or press the down button.
     - Changing initial gender ratio
     - About/Info page
-    - exiting the App  
+    - exiting the App
+  
 Be sensible, apps crash, it never harms to have an actual physical scoreboard around if you're in charge of keeping score for an important game! 
  
 ## Supported Devices
