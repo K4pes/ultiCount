@@ -2,6 +2,7 @@
 ... is an Open Source Connect IQ App for your Garmin Device that won’t make you play better Ultimate Frisbee, but it will _assist_ you in keeping the score as well as tracking what the gender ratio should be! In true ABBA style.
 
 ## Features
+![alt text](https://github.com/K4pes/ultiCount/blob/main/ScreenCaptures/Screenshot_fr165_gameplay_annotated.png "Game view in UltiCount")
 - Game & point clock
 - Tracking of score & gender ratio (incl. setting initial gender ratio)
 - Time limit reminders at the start of points (When should the offence indicate they are ready etc.)
@@ -21,12 +22,12 @@ This app aims to provide all the information needed to be help keep track of the
 - Forerunner 165
 - Forerunner 245
 - Fenix 7
-- Venu 3s
+- Venu 3s  
 Get in touch if you want to see your device supported!
   
 ## Contribute
-If you have a GitHub account then you can file issues, requests, and recommendations here.
-Alternatively you can reach out to me at hi@project073.com
+If you have a GitHub account then you can file issues, requests, and recommendations here.  
+Alternatively you can reach out to me at hi@project073.com  
 I'm interested in hearing:
 - how the app works on your device, especially around the layout of icons.
 - which device you wish the app would also run on (so that you can use it?)
