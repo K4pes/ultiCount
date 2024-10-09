@@ -7,4 +7,7 @@ project.manifest = manifest.xml
 base.excludeAnnotations = apiPreThreeThree
 
 # Older devices exclude the annotation :apiPostThreeThree
+# Including fr55, fr255 here aswell as no support for icons 
+fr55.excludeAnnotations = apiPostThreeThree
 fr245.excludeAnnotations = apiPostThreeThree
+fr255.excludeAnnotations = apiPostThreeThree
