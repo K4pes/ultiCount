@@ -20,6 +20,12 @@ class AboutView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
+        var _swipeUpIcon;
+        var _swipeDownIcon;
+        _swipeUpIcon = findDrawableById("swipeUp_LightOutline");
+        _swipeDownIcon = findDrawableById("swipeDown_LightOutline");
+        _swipeUpIcon.setVisible(false);
+        _swipeDownIcon.setVisible(true);
     }
 
     // Update the view

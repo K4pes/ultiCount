@@ -10,6 +10,6 @@
         justification="Graphics.TEXT_JUSTIFY_CENTER"
         color="Graphics.COLOR_WHITE"
     />
-    <bitmap id="swipeUp_LightOutline" x="center" y="10%" visible="false" filename="../drawables/swipe_up_whiteoutline.png"/>
-    <bitmap id="swipeDown_LightOutline" x="center" y="80%" visible="true" filename="../drawables/swipe_down_whiteoutline.png"/>
+    <bitmap id="swipeUp_LightOutline" x="center" y="10%" filename="../drawables/swipe_up_whiteoutline.png"/>
+    <bitmap id="swipeDown_LightOutline" x="center" y="80%" filename="../drawables/swipe_down_whiteoutline.png"/>
 </layout>
