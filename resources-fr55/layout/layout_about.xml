@@ -1,0 +1,15 @@
+<layout id="aboutLayout">
+    <text-area 
+        id="id_aboutTextArea" 
+        text="@Strings.about_1" 
+        x="center" 
+        y="center" 
+        width="87%" 
+        height="55%" 
+        font="Graphics.FONT_XTINY"
+        justification="Graphics.TEXT_JUSTIFY_CENTER"
+        color="Graphics.COLOR_WHITE"
+    />
+    <bitmap id="swipeUp_LightOutline" x="center" y="10%" visible="false" filename="../../resources/drawables/swipe_up_whiteoutline.png"/>
+    <bitmap id="swipeDown_LightOutline" x="center" y="80%" visible="true" filename="../../resources/drawables/swipe_down_whiteoutline.png"/>
+</layout>

@@ -1,0 +1,6 @@
+<drawable-list id="circle_four">
+    <shape type="circle" x="38%" y="91%" radius="6" border_width="2" color="Graphics.COLOR_BLACK" border_color="Graphics.COLOR_WHITE"/>
+    <shape type="circle" x="46%" y="91%" radius="6" color="Graphics.COLOR_WHITE"/>
+    <shape type="circle" x="54%" y="91%" radius="6" color="Graphics.COLOR_WHITE"/>
+    <shape type="circle" x="62%" y="91%" radius="6" border_width="2" color="Graphics.COLOR_BLACK" border_color="Graphics.COLOR_WHITE"/>
+</drawable-list>
