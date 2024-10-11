@@ -1,5 +1,6 @@
 # Ulticount...
-... is an Open Source Connect IQ App for your Garmin Device that won’t make you play better Ultimate Frisbee, but it will _assist_ you in keeping the score as well as tracking what the gender ratio should be! In true ABBA style.
+... is an Open Source Connect IQ App for your Garmin Device that won’t make you play better Ultimate Frisbee, but it will _assist_ you in keeping the score as well as tracking what the gender ratio should be! In true ABBA style.  
+Install the app from [here in Garmin IQ Store](https://apps.garmin.com/apps/c9a21d52-470b-422e-9566-a70e8c52384d)
 
 ## Features
 <img src="https://github.com/K4pes/ultiCount/blob/main/ScreenCaptures/Screenshot_fr165_gameplay_annotated_125DPI.png" width="600" />  
@@ -40,6 +41,8 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
+### Version 1.1.0.
+- Added Support for fenix7s, fr55, fr255, venu3, fenix6, fenix 6pro, venu2, venu2s, venu2plus
 ### Version 1.0.0.
 - Initial Release for Forerunner 165 & 245, Fenix 7, and Venu 3s
 
