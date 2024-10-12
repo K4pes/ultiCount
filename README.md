@@ -41,6 +41,8 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
+### Version 1.2.0
+- Added feature to reset game clock and scores from settings menu
 ### Version 1.1.0.
 - Added Support for fenix7s, fr55, fr255, venu3, fenix6, fenix 6pro, venu2, venu2s, venu2plus
 ### Version 1.0.0.
