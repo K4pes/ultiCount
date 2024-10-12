@@ -36,6 +36,10 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             // then push the gender ratio menu             
             updateGenderInMenu(Application.getApp());
             WatchUi.pushView(_genderMenu, new myAppSettingsSubMenuDelegate(), WatchUi.SLIDE_UP);
+        }else if (_theItemLabel.equals("Reset Game")){
+            // Pop Menu and then call function to reset game (Otherwise interference between menu and confirmation dialog)
+            WatchUi.popView(WatchUi.SLIDE_BLINK);
+            Application.getApp().getMainView().resetGame(false);            
         }else if (_theItemLabel.equals("About")){
             // Push the about View
             var _aboutView = new AboutView();
@@ -76,12 +80,12 @@ private var _startingGender = Application.getApp().getStartingGender();
 
     //! Handle the back key being pressed
     public function onBack() as Void {
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        WatchUi.popView(WatchUi.SLIDE_BLINK);
     }
 
     //! Handle the done item being selected
     public function onDone() as Void {
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        WatchUi.popView(WatchUi.SLIDE_BLINK);
     }
 
 }

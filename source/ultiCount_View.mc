@@ -122,6 +122,7 @@ class MainGameView extends WatchUi.View {
         WatchUi.requestUpdate();
     }
 
+    // Calculate the correct Gender Ratio and take appropriate action (Show relevant icon etc.)
     public function calculateRatio() as Void{
         //add scores, calculate, and display which is the correct Gender Ratio
         // A = 0, B = 1
@@ -176,7 +177,28 @@ class MainGameView extends WatchUi.View {
 
     }
 
-    
+    public function resetGame(confirmed as Boolean) as Void{
+        // if time is running and confirmed is false
+            // call confirmation dialog which then requests this function with confirmed = true
+        // if timerunning is false or confirmed is true then reset game 
+        if (confirmed == true or _timeRunning == false) {
+            stopTimer();
+            _elapsedSecondsGame = 0;
+            _elapsedSecondsPoint = 0;
+            _potentialElapsedSecondsPoint = 0;
+            _scoreLight=0;
+            _scoreDark=0;
+            Application.getApp().goodVibes(1);            
+        } else {
+            // get confirmation to reset game
+            var dialog = new WatchUi.Confirmation("Reset time and score?");
+            WatchUi.pushView(dialog, new ConfirmationDialogDelegate(1), WatchUi.SLIDE_IMMEDIATE);
+        }
+
+    }
+
+
+
     //! Callback for timer 1
     public function callback1() as Void {
         _elapsedSecondsGame++;
@@ -191,6 +213,8 @@ class MainGameView extends WatchUi.View {
         WatchUi.requestUpdate();
     }
 
+    // Show Toast Notifications depending on situation (Offense Ready / Pull)
+    // for newer Devices that support Toasts and have system icons (see monkey.Jungle for exlusions)
     (:apiPostThreeThree)
     public function timeWarnings(warningType as Number) as Void {
         switch(warningType) {
@@ -205,6 +229,8 @@ class MainGameView extends WatchUi.View {
         }  
     }
 
+    //Alert user depending on situation (Offense Ready / Pull)
+    // for older Devices that either dont support Toasts or have system icons (see monkey.Jungle for exlusions)
     (:apiPreThreeThree)
     public function timeWarnings(warningType as Number) as Void {
         switch(warningType) {
@@ -217,6 +243,8 @@ class MainGameView extends WatchUi.View {
         }  
     }
 
+    // start a new potential clock point clock when the user starts the workflow to input a score
+    // No time lost between pressing button and selecting which team scored
     public function startNewPotentialPointClock() as Void {
         _potentialElapsedSecondsPoint = 0;
     }
@@ -229,8 +257,7 @@ class MainGameView extends WatchUi.View {
         return timeString;
     }
 
-
-
+    // If time is running, stop timer and vice versa
     public function startStopTimer() as Void {
         if (_timeRunning == false) {
             _timer1.start(method(:callback1), 1000, true);
@@ -241,4 +268,15 @@ class MainGameView extends WatchUi.View {
         }
 
     }
+
+    // If time is running, stop timer
+    public function stopTimer() as Void {
+        if (_timeRunning == true) {
+            _timer1.stop();
+            _timeRunning = false;
+        }
+
+    }
+
+
 }

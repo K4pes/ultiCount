@@ -20,24 +20,37 @@ import Toybox.WatchUi;
 import Toybox.System;
 
 //! Input handler for the confirmation dialog
+// requires a useCase to be passed as a number to handle the different types of confirmation
+// useCase = 0 : asking user if they want to exit the app
+// useCase = 1 : asking user if they want to reset the game
 class ConfirmationDialogDelegate extends WatchUi.ConfirmationDelegate {
-
+    private var _useCase;
 
     //! Constructor
     //! @param view The app view
-    public function initialize() {
+    public function initialize(useCase) {
         ConfirmationDelegate.initialize();
-        
+        _useCase = useCase;
     }
 
     //! Handle a confirmation selection
     //! @param value The confirmation value
     //! @return true if handled, false otherwise
     public function onResponse(value as Confirm) as Boolean {
-        if (value == WatchUi.CONFIRM_NO) {
-            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        } else {
-            System.exit();
+        switch(_useCase){
+            case 0:
+                //exit the app
+                if (value == WatchUi.CONFIRM_NO) {
+                    WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+                } else {
+                    System.exit();
+                }
+                break;
+            case 1:
+                //reset the game
+                Application.getApp().getMainView().resetGame(true);
+                //WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+                break;
         }
         return true;
     }

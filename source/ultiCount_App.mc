@@ -138,7 +138,7 @@ class UltiCountApp extends Application.AppBase {
 
     function exitApp () as Void {
         var dialog = new WatchUi.Confirmation("Really want to Exit?");
-        WatchUi.pushView(dialog, new ConfirmationDialogDelegate(), WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.pushView(dialog, new ConfirmationDialogDelegate(0), WatchUi.SLIDE_IMMEDIATE);
     }
 
 }
