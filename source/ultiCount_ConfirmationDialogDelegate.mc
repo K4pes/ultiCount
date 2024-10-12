@@ -37,20 +37,17 @@ class ConfirmationDialogDelegate extends WatchUi.ConfirmationDelegate {
     //! @param value The confirmation value
     //! @return true if handled, false otherwise
     public function onResponse(value as Confirm) as Boolean {
-        switch(_useCase){
-            case 0:
-                //exit the app
-                if (value == WatchUi.CONFIRM_NO) {
-                    WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-                } else {
+        if (value == WatchUi.CONFIRM_YES) {
+        //only interested in confirmations
+            switch(_useCase){
+                case 0:
+                    //exit the app
                     System.exit();
-                }
-                break;
-            case 1:
-                //reset the game
-                Application.getApp().getMainView().resetGame(true);
-                //WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-                break;
+                case 1:
+                    //reset the game
+                    Application.getApp().getMainView().resetGame(true);
+                    break;
+            }
         }
         return true;
     }
