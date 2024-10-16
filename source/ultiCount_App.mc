@@ -18,6 +18,7 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
+import Toybox.Time;
 
 class UltiCountApp extends Application.AppBase {    
     private var _mainView;
@@ -25,13 +26,14 @@ class UltiCountApp extends Application.AppBase {
     private var _genderMenu;
     private var _settingsMenu;
     private var _initialRun;
+    private var _gameDetails;
     
 
     function initialize() {
-        AppBase.initialize();
-        _startingGender = "fourWomen";
+        AppBase.initialize();        
         _genderMenu = new Rez.Menus.genderMenu();
         _settingsMenu = new Rez.Menus.SettingsMenu();
+
     }
 
     // onStart() is called on application start up
@@ -40,17 +42,42 @@ class UltiCountApp extends Application.AppBase {
         //(if it has, then a storage key initialRun with value false is in storage)
         _initialRun = Application.Storage.getValue("initialRun");
         Application.Storage.setValue("initialRun", false);
+
+        //get game and other details from when app was closed
+        _gameDetails = Application.Storage.getValue("gameDetails");
+        _startingGender = Application.Storage.getValue("startingGender");
+        var _timeExited = Application.Storage.getValue("timeExited");
+
+        //if no _startingGender set previously, default to "FourWomen"
+        if (_startingGender == null){
+            _startingGender = "fourWomen";
+        }
+
+        //Update times in game Details (increment times by seconds since app closed)
+        if (_gameDetails != null) {
+            var timePassed = Time.now().value() - _timeExited;
+            _gameDetails["elapsedTimeGame"] = _gameDetails["elapsedTimeGame"] + timePassed;
+            _gameDetails["elapsedTimePoint"]= _gameDetails["elapsedTimePoint"] + timePassed;
+        } 
+        
     }
 
     // onStop() is called when your application is exiting
     function onStop(state as Dictionary?) as Void {
+        Application.Storage.setValue("gameDetails", _mainView.getGameDetails());
+        Application.Storage.setValue("startingGender", _startingGender);
+        Application.Storage.setValue("timeExited", Time.now().value());
+
     }
 
     // Return the initial view of your application here
     // for SDK 7+
     function getInitialView() as [Views] or [Views, InputDelegates] {
+        if (_gameDetails == null) {
+            _gameDetails = {};
+        }
         // set _mainView even if not using now, as we will be coming back to it later.
-        _mainView = new MainGameView();
+        _mainView = new MainGameView(_gameDetails);
         //return [ _mainView, new myAppDelegate() ];
         if (_initialRun == null) {
             //initialRun has not been set, initial screen is about screen

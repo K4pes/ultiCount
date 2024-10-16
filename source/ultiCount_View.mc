@@ -44,8 +44,17 @@ class MainGameView extends WatchUi.View {
     private var _circleFour;
     //_typeTitleElement = findDrawableById("type_title");
 
-    public function initialize() {
+    public function initialize(gameDetails as Dictionary) {
         View.initialize();
+        if (gameDetails.size() > 0) {                
+            _elapsedSecondsGame = gameDetails["elapsedTimeGame"];
+            _elapsedSecondsPoint = gameDetails["elapsedTimePoint"];
+            _scoreLight = gameDetails["scoreLight"];
+            _scoreDark = gameDetails["scoreDark"];
+            //if (gameDetails["gameRunning"]){
+            //    startStopTimer();
+            //}
+        }
     }
 
     // Load your resources here
@@ -71,6 +80,7 @@ class MainGameView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
+        
     }
 
     // Update the view
@@ -275,6 +285,18 @@ class MainGameView extends WatchUi.View {
             _timer1.stop();
             _timeRunning = false;
         }
+
+    }
+
+    public function getGameDetails() as Dictionary {
+        var myDict = {
+            "gameRunning" => _timeRunning,
+            "elapsedTimeGame" => _elapsedSecondsGame,
+            "elapsedTimePoint" => _elapsedSecondsPoint,
+            "scoreLight" => _scoreLight,
+            "scoreDark" => _scoreDark           
+        };
+        return myDict;
 
     }
 
