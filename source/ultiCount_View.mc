@@ -42,19 +42,14 @@ class MainGameView extends WatchUi.View {
     private var _circleTwo;
     private var _circleThree;
     private var _circleFour;
+    private var _storedGameDetails;
+    private var _gameLoaded as Boolean = false;
     //_typeTitleElement = findDrawableById("type_title");
 
     public function initialize(gameDetails as Dictionary) {
         View.initialize();
-        if (gameDetails.size() > 0) {                
-            _elapsedSecondsGame = gameDetails["elapsedTimeGame"];
-            _elapsedSecondsPoint = gameDetails["elapsedTimePoint"];
-            _scoreLight = gameDetails["scoreLight"];
-            _scoreDark = gameDetails["scoreDark"];
-            //if (gameDetails["gameRunning"]){
-            //    startStopTimer();
-            //}
-        }
+        _storedGameDetails = gameDetails;
+        
     }
 
     // Load your resources here
@@ -80,7 +75,9 @@ class MainGameView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
-        
+            if (_gameLoaded == false){
+                loadGameDetails();
+            }
     }
 
     // Update the view
@@ -294,11 +291,28 @@ class MainGameView extends WatchUi.View {
             "elapsedTimeGame" => _elapsedSecondsGame,
             "elapsedTimePoint" => _elapsedSecondsPoint,
             "scoreLight" => _scoreLight,
-            "scoreDark" => _scoreDark           
+            "scoreDark" => _scoreDark,
+            "pointInTime"=> Time.now().value()           
         };
         return myDict;
 
     }
 
+    private function loadGameDetails() as Void {
+        if (_storedGameDetails.size() > 0) {                
+            _elapsedSecondsGame = _storedGameDetails["elapsedTimeGame"];
+            _elapsedSecondsPoint = _storedGameDetails["elapsedTimePoint"];
+            _scoreLight = _storedGameDetails["scoreLight"];
+            _scoreDark = _storedGameDetails["scoreDark"];
+            if (_storedGameDetails["gameRunning"]){
+                //Update times (increment times by seconds since pointInTime when Details were written)
+                var timePassed = Time.now().value() - _storedGameDetails["pointInTime"];
+                _elapsedSecondsGame = _storedGameDetails["elapsedTimeGame"] + timePassed;
+                _elapsedSecondsPoint = _storedGameDetails["elapsedTimePoint"] + timePassed;                
+                startStopTimer();
+            }
+        }
+        _gameLoaded = true;
+    }
 
 }

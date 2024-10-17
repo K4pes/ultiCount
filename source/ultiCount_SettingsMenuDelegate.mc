@@ -25,6 +25,7 @@ class myAppSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
     
     function initialize() {
         Menu2InputDelegate.initialize();
+        updateGenderInMenu(Application.getApp());
     }
     
     public function onSelect(item as MenuItem) as Void {

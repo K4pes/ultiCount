@@ -46,19 +46,12 @@ class UltiCountApp extends Application.AppBase {
         //get game and other details from when app was closed
         _gameDetails = Application.Storage.getValue("gameDetails");
         _startingGender = Application.Storage.getValue("startingGender");
-        var _timeExited = Application.Storage.getValue("timeExited");
 
         //if no _startingGender set previously, default to "FourWomen"
         if (_startingGender == null){
             _startingGender = "fourWomen";
         }
 
-        //Update times in game Details (increment times by seconds since app closed)
-        if (_gameDetails != null) {
-            var timePassed = Time.now().value() - _timeExited;
-            _gameDetails["elapsedTimeGame"] = _gameDetails["elapsedTimeGame"] + timePassed;
-            _gameDetails["elapsedTimePoint"]= _gameDetails["elapsedTimePoint"] + timePassed;
-        } 
         
     }
 
@@ -66,8 +59,6 @@ class UltiCountApp extends Application.AppBase {
     function onStop(state as Dictionary?) as Void {
         Application.Storage.setValue("gameDetails", _mainView.getGameDetails());
         Application.Storage.setValue("startingGender", _startingGender);
-        Application.Storage.setValue("timeExited", Time.now().value());
-
     }
 
     // Return the initial view of your application here
