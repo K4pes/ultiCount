@@ -23,10 +23,10 @@ This app aims to provide all the information needed to be help keep track of the
 Be sensible, apps crash, it never harms to have an actual physical scoreboard around if you're in charge of keeping score for an important game! 
  
 ## Supported Devices
-- Forerunner 165
-- Forerunner 245
-- Fenix 7
-- Venu 3s  
+- Forerunner 55, 165, 165music, 245, 255
+- Fenix 6, 6pro, 7, 7s
+- Venu 2, 2plus, 2s, 3, 3s
+- Vivoactive 4, 4s
 ...Get in touch if you want to see your device supported!
   
 ## Contribute
