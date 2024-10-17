@@ -42,10 +42,13 @@ class MainGameView extends WatchUi.View {
     private var _circleTwo;
     private var _circleThree;
     private var _circleFour;
-    //_typeTitleElement = findDrawableById("type_title");
+    private var _storedGameDetails;
+    private var _gameLoaded as Boolean = false;
 
     public function initialize() {
         View.initialize();
+        _storedGameDetails = Application.getApp().getStoredGameDetails();
+        
     }
 
     // Load your resources here
@@ -71,6 +74,20 @@ class MainGameView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
+        // check if procedure to load game has run before, if not check if need to load game
+        if (_gameLoaded == false){
+            _gameLoaded = true;
+            if (_storedGameDetails.size() > 0) {
+                if (_storedGameDetails["gameRunning"]){
+                    //prev. game was running, load it without asking
+                    loadGameDetails(_storedGameDetails);
+                }else{
+                    //prev. game was not running, ask if should be loaded
+                    var cfmDialog = new WatchUi.Confirmation("Load previous game?");
+                    WatchUi.pushView(cfmDialog, new ConfirmationDialogDelegate(2),WatchUi.SLIDE_IMMEDIATE);
+                }
+            }
+        }
     }
 
     // Update the view
@@ -278,5 +295,35 @@ class MainGameView extends WatchUi.View {
 
     }
 
+    public function getGameDetails() as Dictionary {
+        var gameDetailsDict = {
+            "gameRunning" => _timeRunning,
+            "elapsedTimeGame" => _elapsedSecondsGame,
+            "elapsedTimePoint" => _elapsedSecondsPoint,
+            "scoreLight" => _scoreLight,
+            "scoreDark" => _scoreDark,
+            "pointInTime"=> Time.now().value()           
+        };
+        return gameDetailsDict;
+
+    }
+
+    //function that takes dictionary of game details and updates current game with them.
+    public function loadGameDetails(gameDetails as Dictionary) as Void {
+        if (gameDetails.size() > 0) {                
+            _elapsedSecondsGame = gameDetails["elapsedTimeGame"];
+            _elapsedSecondsPoint = gameDetails["elapsedTimePoint"];
+            _scoreLight = gameDetails["scoreLight"];
+            _scoreDark = gameDetails["scoreDark"];
+            if (gameDetails["gameRunning"]){
+                //Update times (increment times by seconds since pointInTime when Details were written)
+                var timePassed = Time.now().value() - gameDetails["pointInTime"];
+                _elapsedSecondsGame = gameDetails["elapsedTimeGame"] + timePassed;
+                _elapsedSecondsPoint = gameDetails["elapsedTimePoint"] + timePassed;                
+                startStopTimer();
+            }
+        }
+        _gameLoaded = true;
+    }
 
 }

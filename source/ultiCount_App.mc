@@ -18,6 +18,7 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
+import Toybox.Time;
 
 class UltiCountApp extends Application.AppBase {    
     private var _mainView;
@@ -25,13 +26,14 @@ class UltiCountApp extends Application.AppBase {
     private var _genderMenu;
     private var _settingsMenu;
     private var _initialRun;
+    private var _gameDetails;
     
 
     function initialize() {
-        AppBase.initialize();
-        _startingGender = "fourWomen";
+        AppBase.initialize();        
         _genderMenu = new Rez.Menus.genderMenu();
         _settingsMenu = new Rez.Menus.SettingsMenu();
+
     }
 
     // onStart() is called on application start up
@@ -40,15 +42,33 @@ class UltiCountApp extends Application.AppBase {
         //(if it has, then a storage key initialRun with value false is in storage)
         _initialRun = Application.Storage.getValue("initialRun");
         Application.Storage.setValue("initialRun", false);
+
+        //get game and other details from when app was closed
+        _gameDetails = Application.Storage.getValue("gameDetails");
+        _startingGender = Application.Storage.getValue("startingGender");
+
+        //if no _startingGender set previously, default to "FourWomen"
+        if (_startingGender == null){
+            _startingGender = "fourWomen";
+        }
+
+        //if no gameDetails loaded, create an empty dictionary as fallback
+        if (_gameDetails == null) {
+            _gameDetails = {};
+        }
+        
     }
 
     // onStop() is called when your application is exiting
     function onStop(state as Dictionary?) as Void {
+        Application.Storage.setValue("gameDetails", _mainView.getGameDetails());
+        Application.Storage.setValue("startingGender", _startingGender);
     }
 
     // Return the initial view of your application here
     // for SDK 7+
     function getInitialView() as [Views] or [Views, InputDelegates] {
+        
         // set _mainView even if not using now, as we will be coming back to it later.
         _mainView = new MainGameView();
         //return [ _mainView, new myAppDelegate() ];
@@ -57,7 +77,7 @@ class UltiCountApp extends Application.AppBase {
             var _aboutView = new AboutView();
             return [_aboutView, new AboutViewDelegate(_aboutView, true)];
         } else {
-            //not the first time running the app, go straight to game view
+            //not the first time running the app, load Game view (loading of previos game is handled in View)
             return [ _mainView, new GameViewInputDelegate() ];
         }
     }
@@ -86,6 +106,10 @@ class UltiCountApp extends Application.AppBase {
     // Returns startingGender
     function getStartingGender() as String {
         return _startingGender;
+    }
+
+    function getStoredGameDetails() as Dictionary {
+        return _gameDetails;
     }
 
     function changeStartingGender() as Void{
