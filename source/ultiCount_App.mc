@@ -52,6 +52,10 @@ class UltiCountApp extends Application.AppBase {
             _startingGender = "fourWomen";
         }
 
+        //if no gameDetails loaded, create an empty dictionary as fallback
+        if (_gameDetails == null) {
+            _gameDetails = {};
+        }
         
     }
 
@@ -64,18 +68,16 @@ class UltiCountApp extends Application.AppBase {
     // Return the initial view of your application here
     // for SDK 7+
     function getInitialView() as [Views] or [Views, InputDelegates] {
-        if (_gameDetails == null) {
-            _gameDetails = {};
-        }
+        
         // set _mainView even if not using now, as we will be coming back to it later.
-        _mainView = new MainGameView(_gameDetails);
+        _mainView = new MainGameView();
         //return [ _mainView, new myAppDelegate() ];
         if (_initialRun == null) {
             //initialRun has not been set, initial screen is about screen
             var _aboutView = new AboutView();
             return [_aboutView, new AboutViewDelegate(_aboutView, true)];
         } else {
-            //not the first time running the app, go straight to game view
+            //not the first time running the app, load Game view (loading of previos game is handled in View)
             return [ _mainView, new GameViewInputDelegate() ];
         }
     }
@@ -104,6 +106,10 @@ class UltiCountApp extends Application.AppBase {
     // Returns startingGender
     function getStartingGender() as String {
         return _startingGender;
+    }
+
+    function getStoredGameDetails() as Dictionary {
+        return _gameDetails;
     }
 
     function changeStartingGender() as Void{

@@ -47,8 +47,12 @@ class ConfirmationDialogDelegate extends WatchUi.ConfirmationDelegate {
                     //reset the game
                     Application.getApp().getMainView().resetGame(true);
                     break;
+                case 2:
+                    //load previous game
+                    Application.getApp().getMainView().loadGameDetails(Application.getApp().getStoredGameDetails());
+                    break;
             }
-        }
+        } 
         return true;
     }
 }

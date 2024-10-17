@@ -44,11 +44,10 @@ class MainGameView extends WatchUi.View {
     private var _circleFour;
     private var _storedGameDetails;
     private var _gameLoaded as Boolean = false;
-    //_typeTitleElement = findDrawableById("type_title");
 
-    public function initialize(gameDetails as Dictionary) {
+    public function initialize() {
         View.initialize();
-        _storedGameDetails = gameDetails;
+        _storedGameDetails = Application.getApp().getStoredGameDetails();
         
     }
 
@@ -75,9 +74,20 @@ class MainGameView extends WatchUi.View {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
-            if (_gameLoaded == false){
-                loadGameDetails();
+        // check if procedure to load game has run before, if not check if need to load game
+        if (_gameLoaded == false){
+            _gameLoaded = true;
+            if (_storedGameDetails.size() > 0) {
+                if (_storedGameDetails["gameRunning"]){
+                    //prev. game was running, load it without asking
+                    loadGameDetails(_storedGameDetails);
+                }else{
+                    //prev. game was not running, ask if should be loaded
+                    var cfmDialog = new WatchUi.Confirmation("Load previous game?");
+                    WatchUi.pushView(cfmDialog, new ConfirmationDialogDelegate(2),WatchUi.SLIDE_IMMEDIATE);
+                }
             }
+        }
     }
 
     // Update the view
@@ -286,7 +296,7 @@ class MainGameView extends WatchUi.View {
     }
 
     public function getGameDetails() as Dictionary {
-        var myDict = {
+        var gameDetailsDict = {
             "gameRunning" => _timeRunning,
             "elapsedTimeGame" => _elapsedSecondsGame,
             "elapsedTimePoint" => _elapsedSecondsPoint,
@@ -294,21 +304,22 @@ class MainGameView extends WatchUi.View {
             "scoreDark" => _scoreDark,
             "pointInTime"=> Time.now().value()           
         };
-        return myDict;
+        return gameDetailsDict;
 
     }
 
-    private function loadGameDetails() as Void {
-        if (_storedGameDetails.size() > 0) {                
-            _elapsedSecondsGame = _storedGameDetails["elapsedTimeGame"];
-            _elapsedSecondsPoint = _storedGameDetails["elapsedTimePoint"];
-            _scoreLight = _storedGameDetails["scoreLight"];
-            _scoreDark = _storedGameDetails["scoreDark"];
-            if (_storedGameDetails["gameRunning"]){
+    //function that takes dictionary of game details and updates current game with them.
+    public function loadGameDetails(gameDetails as Dictionary) as Void {
+        if (gameDetails.size() > 0) {                
+            _elapsedSecondsGame = gameDetails["elapsedTimeGame"];
+            _elapsedSecondsPoint = gameDetails["elapsedTimePoint"];
+            _scoreLight = gameDetails["scoreLight"];
+            _scoreDark = gameDetails["scoreDark"];
+            if (gameDetails["gameRunning"]){
                 //Update times (increment times by seconds since pointInTime when Details were written)
-                var timePassed = Time.now().value() - _storedGameDetails["pointInTime"];
-                _elapsedSecondsGame = _storedGameDetails["elapsedTimeGame"] + timePassed;
-                _elapsedSecondsPoint = _storedGameDetails["elapsedTimePoint"] + timePassed;                
+                var timePassed = Time.now().value() - gameDetails["pointInTime"];
+                _elapsedSecondsGame = gameDetails["elapsedTimeGame"] + timePassed;
+                _elapsedSecondsPoint = gameDetails["elapsedTimePoint"] + timePassed;                
                 startStopTimer();
             }
         }
