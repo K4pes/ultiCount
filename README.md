@@ -41,10 +41,13 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
+### Version 1.3.0
+- Game states are now saved when the app is closed, and loaded when the app is reopened.
+- Added support for fr165m, vivoactive4, vivoactive4s
 ### Version 1.2.0
 - Added feature to reset game clock and scores from settings menu
 ### Version 1.1.0.
-- Added Support for fenix7s, fr55, fr255, venu3, fenix6, fenix 6pro, venu2, venu2s, venu2plus
+- Added support for fenix7s, fr55, fr255, venu3, fenix6, fenix 6pro, venu2, venu2s, venu2plus
 ### Version 1.0.0.
-- Initial Release for Forerunner 165 & 245, Fenix 7, and Venu 3s
+- Initial release for Forerunner 165 & 245, Fenix 7, and Venu 3s
 
