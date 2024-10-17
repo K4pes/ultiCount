@@ -11,3 +11,5 @@ base.excludeAnnotations = apiPreThreeThree
 fr55.excludeAnnotations = apiPostThreeThree
 fr245.excludeAnnotations = apiPostThreeThree
 fr255.excludeAnnotations = apiPostThreeThree
+vivoactive4.excludeAnnotations = apiPostThreeThree
+vivoactive4s.excludeAnnotations = apiPostThreeThree
