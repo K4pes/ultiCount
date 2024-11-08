@@ -82,9 +82,12 @@ class MainGameView extends WatchUi.View {
                     //prev. game was running, load it without asking
                     loadGameDetails(_storedGameDetails);
                 }else{
-                    //prev. game was not running, ask if should be loaded
-                    var cfmDialog = new WatchUi.Confirmation("Load previous game?");
-                    WatchUi.pushView(cfmDialog, new ConfirmationDialogDelegate(2),WatchUi.SLIDE_IMMEDIATE);
+                    //prev. game was not running, check if anything happened in game and ask if should be loaded
+                    var gameCheck = _storedGameDetails["elapsedTimeGame"] + _storedGameDetails["scoreLight"] + _storedGameDetails["scoreDark"];
+                    if (gameCheck > 0){
+                        var cfmDialog = new WatchUi.Confirmation("Load previous game?");
+                        WatchUi.pushView(cfmDialog, new ConfirmationDialogDelegate(2),WatchUi.SLIDE_IMMEDIATE);
+                    }                        
                 }
             }
         }
