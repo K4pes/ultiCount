@@ -41,6 +41,8 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
+### Version 1.3.1
+- Improved flow of loading previous games. (No user confirmation if previous game was empty)
 ### Version 1.3.0
 - Game states are now saved when the app is closed, and loaded when the app is reopened.
 - Added support for fr165m, vivoactive4, vivoactive4s
