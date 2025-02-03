@@ -2,10 +2,10 @@
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
     <bitmap id="gender_women_large" filename="../../resources/drawables/Gender_Women_White_outline_50px.png" />
     <bitmap id="gender_men_large" filename="../../resources/drawables/Gender_Men_White_outline_50px.png" />
-    <bitmap id="gender_women" filename="../../resources/drawables/Gender_Women_White_outline.png" />
-    <bitmap id="gender_men" filename="../../resources/drawables/Gender_Men_White_outline.png" />
-    <bitmap id="gender_women_highlight" filename="../../resources/drawables/Gender_Women_White_outline_highlighted.png" />
-    <bitmap id="gender_men_highlight" filename="../../resources/drawables/Gender_Men_White_outline_highlighted.png" />
+    <bitmap id="gender_women" filename="Gender_Women_White_outline_40px.png" />
+    <bitmap id="gender_men" filename="Gender_Men_White_outline_40px.png" />
+    <bitmap id="gender_women_highlight" filename="Gender_Women_White_outline_highlighted_40px.png" />
+    <bitmap id="gender_men_highlight" filename="Gender_Men_White_outline_highlighted_40px.png" />
     <bitmap id="gender_women_LightOutline" filename="../../resources/drawables/Gender_Women_White_outline.png" />
     <bitmap id="gender_men_LightOutline" filename="../../resources/drawables/Gender_Men_White_outline.png" />
     <bitmap id="gender_women_DarkOutline" filename="../../resources/drawables/Gender_Women_Black_outline.png" />
