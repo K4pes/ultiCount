@@ -1,15 +1,4 @@
 <drawables>
-    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-    <bitmap id="gender_women_large" filename="Gender_Women_White_outline_50px.png" />
-    <bitmap id="gender_men_large" filename="Gender_Men_White_outline_50px.png" />
-    <bitmap id="gender_women" filename="Gender_Women_White_outline.png" />
-    <bitmap id="gender_men" filename="Gender_Men_White_outline.png" />
-    <bitmap id="gender_women_highlight" filename="Gender_Women_White_outline_highlighted.png" />
-    <bitmap id="gender_men_highlight" filename="Gender_Men_White_outline_highlighted.png" />
-    <bitmap id="gender_women_LightOutline" filename="Gender_Women_White_outline.png" />
-    <bitmap id="gender_men_LightOutline" filename="Gender_Men_White_outline.png" />
-    <bitmap id="gender_women_DarkOutline" filename="Gender_Women_Black_outline.png" />
-    <bitmap id="gender_men_DarkOutline" filename="Gender_Men_Black_outline.png" />
     <bitmap id="swipeUp_LightOutline" filename="swipe_up_whiteoutline.png" />
     <bitmap id="swipeDown_LightOutline" filename="swipe_down_whiteoutline.png" />
 </drawables>
