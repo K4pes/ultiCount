@@ -1,15 +1,11 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
     <bitmap id="gender_women_large" filename="../../resources/drawables/Gender_Women_White_outline_50px.png" />
-    <bitmap id="gender_men_large" filename="../../resources/drawables/Gender_Men_White_outline_50px.png" />
-    <bitmap id="gender_women" filename="../../resources/drawables/Gender_Women_White_outline.png" />
-    <bitmap id="gender_men" filename="../../resources/drawables/Gender_Men_White_outline.png" />
-    <bitmap id="gender_women_highlight" filename="../../resources/drawables/Gender_Women_White_outline_highlighted.png" />
-    <bitmap id="gender_men_highlight" filename="../../resources/drawables/Gender_Men_White_outline_highlighted.png" />
-    <bitmap id="gender_women_LightOutline" filename="../../resources/drawables/Gender_Women_White_outline.png" />
-    <bitmap id="gender_men_LightOutline" filename="../../resources/drawables/Gender_Men_White_outline.png" />
-    <bitmap id="gender_women_DarkOutline" filename="../../resources/drawables/Gender_Women_Black_outline.png" />
-    <bitmap id="gender_men_DarkOutline" filename="../../resources/drawables/Gender_Men_Black_outline.png" />
+    <bitmap id="gender_men_large" filename="../../resources/drawables/Gender_Men_White_outline_50px.png" />    
+    <bitmap id="gender_women_highlight" filename="../../resources/drawables/Gender_Women_White_outline_highlighted.svg" automaticPalette="true" dithering="none" scaleX="15%" scaleRelativeTo="screen"/>
+    <bitmap id="gender_men_highlight" filename="../../resources/drawables/Gender_Men_White_outline_highlighted.svg" automaticPalette="true" dithering="none" scaleX="15%" scaleRelativeTo="screen"/>
+    <bitmap id="gender_women_LightOutline" filename="../../resources/drawables/Gender_Women_White_outline.svg" automaticPalette="true" dithering="none" scaleX="15%" scaleRelativeTo="screen"/>
+    <bitmap id="gender_men_LightOutline" filename="../../resources/drawables/Gender_Men_White_outline.svg" automaticPalette="true" dithering="none" scaleX="15%" scaleRelativeTo="screen"/>
     <!-- <drawable-list id="myRect" /> -->
      <bitmap id="warningToastIcon" personality="
         system_icon_light__about 

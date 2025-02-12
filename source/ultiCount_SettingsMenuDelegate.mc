@@ -102,19 +102,10 @@ public function updateGenderInMenu(_thisApp) as Void {
     if (_startingGender.equals("fourWomen")){
         myFemaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_women_highlight});
         myMaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_men_LightOutline});
-        //myFemaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_women_highlight,:locX=>0,:locY=>0});
-        //myMaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_men_LightOutline,:locX=>0,:locY=>0});
-        
-        //myFemaleIcon = new WatchUi.Drawable({:identifier=>Rez.Drawables.gender_women_highlight,:locX=>0,:locY=>0});
-        //myMaleIcon = new WatchUi.Drawable({:identifier=>Rez.Drawables.gender_men_LightOutline,:locX=>0,:locY=>0});
         _labelString = "4 Female-matching";
     } else {
         myFemaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_women_LightOutline});
         myMaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_men_highlight});
-        
-
-        //myFemaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_women_LightOutline,:locX=>0,:locY=>0});
-        //myMaleIcon = new WatchUi.Bitmap({:rezId=>Rez.Drawables.gender_men_highlight,:locX=>0,:locY=>0});
         _labelString = "4 Male-matching";
     }
     
