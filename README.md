@@ -46,6 +46,9 @@ I'm definitely interested in hearing:
 ### Version 1.4.0
 - Improved gender icons in Menu
 - Added Support for fr265
+### Version 1.4.0
+- Improved gender icons in Menu
+- Added Support for fr265
 ### Version 1.3.1
 - Improved flow of loading previous games. (No user confirmation if previous game was empty)
 ### Version 1.3.0
