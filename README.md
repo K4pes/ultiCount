@@ -41,7 +41,7 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
-### Version 1.4.0
+### Version 1.4.1
 - Fixed Support for fr265
 ### Version 1.4.0
 - Improved gender icons in Menu
