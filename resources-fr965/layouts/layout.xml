@@ -1,0 +1,17 @@
+<layout id="MainLayout">
+    <!-- <label x="center" y="5" text="@Strings.prompt" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" /> -->
+    <drawable id="myRect" />
+    <label id="id_labelLights" x="47%" y="20%" text="Light" font="Graphics.FONT_TINY" color="Graphics.COLOR_BLACK"  justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="id_labelDarks" x="53%" y="20%" text="Dark" font="Graphics.FONT_TINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+    <label id="id_scoreLights" x="47%" y="4%" text="00" font="Graphics.FONT_LARGE" color="Graphics.COLOR_BLACK"  justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="id_scoreDarks" x="53%" y="4%" text="00" font="Graphics.FONT_LARGE" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+    <label id="id_clock"  x="center" y="33%" text="00:00" font="Graphics.FONT_TINY" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="id_gameTimer"  x="center" y="39%" text="00:00:00" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="id_pointTimer"  x="center" y="57%" text="00:00:00" font="Graphics.FONT_TINY" color="Graphics.COLOR_LT_GRAY" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <bitmap id="gender_women_large" x="center" y="70%" visible="true" filename="../../resources/drawables/Gender_Women_White_outline_50px.png" />
+    <bitmap id="gender_men_large" x="center" y="70%" visible="false" filename="../../resources/drawables/Gender_Men_White_outline_50px.png" />
+    <drawable id="circle_one" visible="true"/>
+    <drawable id="circle_two" visible="false"/>
+    <drawable id="circle_three" visible="false"/>
+    <drawable id="circle_four" visible="false"/>
+</layout>
