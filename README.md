@@ -41,11 +41,10 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
+### Version 1.5.0
+- Added Support for fr955, fr965
 ### Version 1.4.1
 - Fixed Support for fr265
-### Version 1.4.0
-- Improved gender icons in Menu
-- Added Support for fr265
 ### Version 1.4.0
 - Improved gender icons in Menu
 - Added Support for fr265
