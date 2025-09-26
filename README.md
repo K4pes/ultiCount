@@ -42,6 +42,8 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
+### Version 1.6.1
+- fixed bug in fr55 where circles where not showing due to unsupported colour.
 ### Version 1.6.0
 - Added Support for fr570 42mm, fr570 47mm, fr970, fenix8, vivoactive6
 ### Version 1.5.0
