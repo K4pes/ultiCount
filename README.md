@@ -23,10 +23,11 @@ This app aims to provide all the information needed to be help keep track of the
 Be sensible, apps crash, it never harms to have an actual physical scoreboard around if you're in charge of keeping score for an important game! 
  
 ## Supported Devices
-- Forerunner 55, 165, 165music, 245, 255
-- Fenix 6, 6pro, 7, 7s
+(full list including all variants is best seen on the Garmin IQ store page)
+- Forerunner 55, 165, 165music, 245, 255, 265, 570, 955, 965, 970
+- Fenix 6, 6pro, 7, 7s, 8
 - Venu 2, 2plus, 2s, 3, 3s
-- Vivoactive 4, 4s
+- Vivoactive 4, 4s, 6
 ...Get in touch if you want to see your device supported!
   
 ## Contribute
@@ -41,6 +42,8 @@ I'm definitely interested in hearing:
 
 
 ## Whats new
+### Version 1.6.0
+- Added Support for fr570 42mm, fr570 47mm, fr970, fenix8, vivoactive6
 ### Version 1.5.0
 - Added Support for fr955, fr965
 ### Version 1.4.1
